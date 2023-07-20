@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+# Extract the relevant information
+ROM_FILENAME=$(basename "$1")
+SYSTEM_NAME=$(basename "$2")
+CORE_NAME=$(basename "$3")
+EMULATOR_NAME=$(basename "$4")
+
+# Clear the console
+clear >/dev/console
+
+# Display the logo with a green color for the text
+echo -en "\033[1000H\033[2K
+[1;32m     ██ ███████ ██     [1;30m  ██████  ███████
+[1;32m     ██ ██      ██     [1;30m ██    ██ ██
+[1;32m     ██ ███████ ██     [1;30m ██    ██ ███████
+[1;32m██   ██ ██      ██     [1;30m ██    ██      ██
+[1;32m █████  ███████ ███████[1;30m  ██████  ███████[0;m
+" >/dev/console
+
+# Display ROM and system information in green color
+echo -e "==> Rom: $(basename "$1" | sed 's/\\ / /g')" >/dev/console &&
+echo -e "==> System: $(basename "$2")" >/dev/console &&
+echo -e "==> Core: $(basename "$3")" >/dev/console &&
+echo -e "==> Emulator: $(basename "$4")" >/dev/console
