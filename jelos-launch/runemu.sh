@@ -49,7 +49,14 @@ BASEROMNAME=${ROMNAME##*/}
 GAMEFOLDER="${ROMNAME//${BASEROMNAME}}"
 
 if [ "$(get_setting splash.enabled)" -eq 1 ]; then
+    # Function to clear the console after 15 seconds
+clear_console() {
+    sleep 15
     clear >/dev/console
+}
+
+# Start the clear_console function in the background
+clear_console &
 
     multiline_output='
     \033[1000H\033[2K
